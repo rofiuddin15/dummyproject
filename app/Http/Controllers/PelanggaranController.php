@@ -76,8 +76,12 @@ class PelanggaranController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pelanggaran $pelanggaran)
+    public function destroy($id)
     {
-        //
+        Pelanggaran::where('id', $id)->delete();
+        return response()->json([
+            'success' => true,
+            'message' => 'Hapus data berhasil',
+        ]);
     }
 }
